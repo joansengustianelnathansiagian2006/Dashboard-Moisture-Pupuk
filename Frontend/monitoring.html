@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Monitoring System</title>
+
+  <link rel="stylesheet"
+        href="css/style.css">
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+
+      <h2>Moisture Monitor</h2>
+
+      <p>Pupuk NPK</p>
+
+    </div>
+
+    <div class="menu">
+
+      <a href="index.html">
+        Dashboard
+      </a>
+
+      <a href="monitoring.html"
+         class="activeMenu">
+
+         Monitoring
+
+      </a>
+
+      <a href="history.html">
+        History Data
+      </a>
+
+      <a href="setting.html">
+        Setting
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div>
+
+        <h1>
+          Monitoring Control Room
+        </h1>
+
+        <p>
+          Industrial Realtime Monitoring System
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- TOP GRID -->
+
+    <div class="monitorGrid">
+
+      <!-- SYSTEM HEALTH -->
+
+      <div class="monitorBox">
+
+        <h2>
+          System Health
+        </h2>
+
+        <div class="healthItem">
+
+          <span>Sensor Status</span>
+
+          <span
+            id="sensorStatus"
+            class="online">
+
+            ONLINE
+
+          </span>
+
+        </div>
+
+        <div class="healthItem">
+
+          <span>Backend</span>
+
+          <span
+            id="backendStatus"
+            class="online">
+
+            CONNECTED
+
+          </span>
+
+        </div>
+
+        <div class="healthItem">
+
+          <span>Socket Delay</span>
+
+          <span id="delayText">
+
+            0 ms
+
+          </span>
+
+        </div>
+
+        <div class="healthItem">
+
+          <span>Packet Received</span>
+
+          <span id="packetText">
+
+            0
+
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- SENSOR DIAGNOSTIC -->
+
+      <div class="monitorBox">
+
+        <h2>
+          Sensor Diagnostic
+        </h2>
+
+        <div class="diagItem">
+
+          Moisture Sensor :
+          <span class="online">
+            OK
+          </span>
+
+        </div>
+
+        <div class="diagItem">
+
+          DHT22 Sensor :
+          <span class="online">
+            OK
+          </span>
+
+        </div>
+
+        <div class="diagItem">
+
+          Data Sync :
+          <span class="online">
+            ACTIVE
+          </span>
+
+        </div>
+
+        <div class="diagItem">
+
+          Realtime Stream :
+          <span class="pulse">
+            ● LIVE
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EVENT LOG -->
+
+    <div class="monitorBox largeBox">
+
+      <div class="logHeader">
+
+        <h2>
+          Live Incident Log
+        </h2>
+
+        <div class="liveIndicator">
+
+          ● LIVE
+
+        </div>
+
+      </div>
+
+      <div
+        id="eventLog"
+        class="eventLog">
+
+      </div>
+
+    </div>
+
+    <!-- PERFORMANCE -->
+
+    <div class="performanceGrid">
+
+      <div class="performanceCard">
+
+        <h3>
+          Average Moisture
+        </h3>
+
+        <h1 id="avgMoisture">
+
+          0%
+
+        </h1>
+
+      </div>
+
+      <div class="performanceCard">
+
+        <h3>
+          Warning Count
+        </h3>
+
+        <h1 id="warningCount">
+
+          0
+
+        </h1>
+
+      </div>
+
+      <div class="performanceCard">
+
+        <h3>
+          Danger Count
+        </h3>
+
+        <h1 id="dangerCount">
+
+          0
+
+        </h1>
+
+      </div>
+
+      <div class="performanceCard">
+
+        <h3>
+          System Uptime
+        </h3>
+
+        <h1 id="uptimeText">
+
+          00:00
+
+        </h1>
+
+      </div>
+
+    </div>
+
+    <!-- RECOMMENDATION -->
+
+    <div class="monitorBox">
+
+      <h2>
+        AI Recommendation
+      </h2>
+
+      <div
+        id="recommendationBox"
+        class="recommendationBox">
+
+        System Stable.
+        No action required.
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/globalState.js"></script>
+  <script src="js/monitoring.js"></script>
+
+</body>
+</html>

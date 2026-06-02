@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>History Data</title>
+
+  <link rel="stylesheet"
+        href="css/style.css">
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+
+      <h2>Moisture Monitor</h2>
+
+      <p>Pupuk NPK</p>
+
+    </div>
+
+    <div class="menu">
+
+      <a href="index.html">
+        Dashboard
+      </a>
+
+      <a href="monitoring.html">
+        Monitoring
+      </a>
+
+      <a href="history.html"
+         class="activeMenu">
+
+         History Data
+
+      </a>
+
+      <a href="setting.html">
+        Setting
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+    <div class="topbar">
+
+      <div>
+
+        <h1>
+          History Monitoring Data
+        </h1>
+
+        <p>
+          Realtime Sensor History
+        </p>
+
+      </div>
+
+      <!-- RESET BUTTON -->
+
+      <button id="resetButton">
+
+        Reset Data
+
+      </button>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="historyBox">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Time</th>
+
+            <th>Temperature</th>
+
+            <th>Humidity</th>
+
+            <th>Moisture</th>
+
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="historyTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script src="js/history.js"></script>
+
+</body>
+</html>

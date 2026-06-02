@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>System Setting</title>
+
+  <link rel="stylesheet"
+        href="css/style.css">
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+
+      <h2>Moisture Monitor</h2>
+
+      <p>Pupuk NPK</p>
+
+    </div>
+
+    <div class="menu">
+
+      <a href="index.html">
+        Dashboard
+      </a>
+
+      <a href="monitoring.html">
+        Monitoring
+      </a>
+
+      <a href="history.html">
+        History Data
+      </a>
+
+      <a href="setting.html"
+         class="activeMenu">
+
+         Setting
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+    <div class="topbar">
+
+      <div>
+
+        <h1>
+          System Setting
+        </h1>
+
+        <p>
+          Monitoring Configuration Panel
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- SYSTEM CONTROL -->
+
+    <div class="settingBox">
+
+      <h2>
+        System Control
+      </h2>
+
+      <div class="settingGrid">
+
+        <button id="toggleSystemBtn"
+                class="settingButton greenBtn">
+
+          SYSTEM ACTIVE
+
+        </button>
+
+        <button id="resetHistoryBtn"
+                class="settingButton redBtn">
+
+          RESET HISTORY
+
+        </button>
+
+      </div>
+
+    </div>
+    <!-- PERSONALIZATION -->
+
+<div class="settingBox">
+
+  <h2>
+    Personalization
+  </h2>
+
+  <div class="settingGrid">
+
+    <!-- LANGUAGE -->
+
+    <div class="inputBox">
+
+      <label>
+        Language
+      </label>
+
+      <select id="languageSelect">
+
+        <option value="id">
+          Indonesia
+        </option>
+
+        <option value="en">
+          English
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- THEME -->
+
+    <div class="inputBox">
+
+      <label>
+        Theme Mode
+      </label>
+
+      <select id="themeSelect">
+
+        <option value="dark">
+          Dark Neon
+        </option>
+
+        <option value="midnight">
+          Midnight Blue
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- THRESHOLD -->
+
+<div class="settingBox">
+
+  <h2>
+    Threshold Setting
+  </h2>
+    <!-- THRESHOLD -->
+
+    <div class="settingBox">
+
+      <h2>
+        Threshold Setting
+      </h2>
+
+      <div class="settingGrid">
+
+        <div class="inputBox">
+
+          <label>
+            Normal Threshold
+          </label>
+
+          <input
+            type="number"
+            value="50"
+            id="normalThreshold">
+
+        </div>
+
+        <div class="inputBox">
+
+          <label>
+            Danger Threshold
+          </label>
+
+          <input
+            type="number"
+            value="70"
+            id="dangerThreshold">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- NOTIFICATION -->
+
+    <div class="settingBox">
+
+      <h2>
+        Notification Setting
+      </h2>
+
+      <div class="switchContainer">
+
+        <label class="switch">
+
+          <input
+            type="checkbox"
+            checked
+            id="alarmToggle">
+
+          <span class="slider"></span>
+
+        </label>
+
+        <p>
+          Alarm Notification
+        </p>
+
+      </div>
+
+      <div class="switchContainer">
+
+        <label class="switch">
+
+          <input
+            type="checkbox"
+            checked
+            id="ledToggle">
+
+          <span class="slider"></span>
+
+        </label>
+
+        <p>
+          LED Indicator
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- SYSTEM INFO -->
+
+    <div class="settingBox">
+
+      <h2>
+        System Information
+      </h2>
+
+      <div class="infoGrid">
+
+        <div class="infoCard">
+
+          <h3>Backend Status</h3>
+
+          <p id="backendStatus">
+            ONLINE
+          </p>
+
+        </div>
+
+        <div class="infoCard">
+
+          <h3>Socket Connection</h3>
+
+          <p id="socketStatus">
+            CONNECTED
+          </p>
+
+        </div>
+
+        <div class="infoCard">
+
+          <h3>Version</h3>
+
+          <p>
+            v1.0.0
+          </p>
+
+        </div>
+
+        <div class="infoCard">
+
+          <h3>Realtime Interval</h3>
+
+          <p>
+            5 Seconds
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/setting.js"></script>
+
+</body>
+</html>

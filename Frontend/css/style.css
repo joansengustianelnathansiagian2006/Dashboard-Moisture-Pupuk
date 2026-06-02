@@ -1,0 +1,1087 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  background:#000;
+
+  color:white;
+
+  font-family:Arial;
+
+  display:flex;
+}
+
+/*
+================================
+SIDEBAR
+================================
+*/
+
+.sidebar{
+  display:flex;
+
+  flex-direction:column;
+
+  width:250px;
+
+  height:100vh;
+
+  background:#0a0a0a;
+
+  border-right:1px solid #222;
+
+  padding:20px;
+}
+
+.logo h2{
+
+  color:#00ff99;
+}
+
+.logo p{
+
+  color:#aaa;
+}
+
+.menu{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+
+  margin-top:50px;
+}
+
+.menu a{
+
+  text-decoration:none;
+
+  color:white;
+
+  padding:15px;
+
+  border-radius:10px;
+
+  transition:0.3s;
+}
+
+.menu a:hover{
+
+  background:#00ff99;
+
+  color:black;
+}
+
+.activeMenu{
+
+  background:#00ff99;
+
+  color:black !important;
+}
+
+/*
+================================
+MAIN
+================================
+*/
+
+.main{
+
+  flex:1;
+
+  padding:20px;
+}
+
+/*
+================================
+TOPBAR
+================================
+*/
+
+.topbar{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+#systemToggle{
+
+  border:none;
+
+  padding:15px 25px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
+  background:#00ff99;
+}
+
+/*
+================================
+CARD
+================================
+*/
+
+.cardContainer{
+
+  display:flex;
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.card{
+
+  flex:1;
+
+  background:#111;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  border:1px solid #222;
+}
+
+.card h3{
+
+  color:#aaa;
+}
+
+.card h1{
+
+  margin-top:10px;
+
+  font-size:50px;
+}
+
+/*
+================================
+STATUS
+================================
+*/
+
+.aman{
+
+  color:#00ff99;
+}
+.waspada{
+
+  color:yellow;
+}
+.bahaya{
+
+  color:red;
+}
+
+/*
+================================
+BOX
+================================
+*/
+
+.boxContainer{
+
+  display:flex;
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.box{
+
+  flex:1;
+
+  background:#111;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  border:1px solid #222;
+}
+
+canvas{
+
+  margin-top:20px;
+}
+/*
+================================
+LED
+================================
+*/
+
+.ledContainer{
+
+  display:flex;
+
+  justify-content:space-around;
+
+  margin-top:30px;
+}
+
+.ledBox{
+
+  text-align:center;
+}
+
+.led{
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:50%;
+
+  margin:auto;
+}
+
+.green{
+
+  background:#00ff99;
+
+  box-shadow:0 0 20px #00ff99;
+}
+
+.yellow{
+
+  background:yellow;
+
+  box-shadow:0 0 20px yellow;
+}
+
+.red{
+
+  background:red;
+
+  box-shadow:0 0 20px red;
+}
+
+/*
+================================
+ALARM
+================================
+*/
+
+.alarmBox{
+
+  margin-top:30px;
+
+  padding:20px;
+
+  background:#1a1a1a;
+
+  border-left:5px solid yellow;
+
+  border-radius:10px;
+
+  font-size:20px;
+}
+
+/*
+================================
+LOG
+================================
+*/
+
+.logBox{
+
+  margin-top:20px;
+
+  background:#0a0a0a;
+
+  padding:20px;
+
+  border-radius:10px;
+
+  height:250px;
+
+  overflow:auto;
+}
+
+.logBox p{
+
+  margin:10px 0;
+
+  color:#00ff99;
+}
+/*
+================================
+HISTORY TABLE
+================================
+*/
+
+.historyBox{
+
+  margin-top:20px;
+
+  background:#111;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  border:1px solid #222;
+
+  max-height:700px;
+
+  overflow:auto;
+}
+
+table{
+
+  width:100%;
+
+  border-collapse:collapse;
+}
+
+table th{
+
+  background:#00ff99;
+
+  color:black;
+
+  padding:15px;
+}
+
+table td{
+
+  padding:15px;
+
+  border-bottom:1px solid #222;
+
+  text-align:center;
+}
+
+tr:hover{
+
+  background:#1a1a1a;
+}
+
+/*
+================================
+RESET BUTTON
+================================
+*/
+
+#resetButton{
+
+  border:none;
+
+  padding:15px 25px;
+
+  background:red;
+
+  color:white;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+/*
+================================
+SETTING
+================================
+*/
+
+.settingBox{
+
+  margin-top:20px;
+
+  background:#111;
+
+  padding:25px;
+
+  border-radius:20px;
+
+  border:1px solid #222;
+}
+
+.settingGrid{
+
+  display:flex;
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.settingButton{
+
+  padding:15px 25px;
+
+  border:none;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
+  font-size:16px;
+}
+
+.greenBtn{
+
+  background:#00ff99;
+
+  color:black;
+}
+
+.redBtn{
+
+  background:red;
+
+  color:white;
+}
+
+.inputBox{
+
+  flex:1;
+
+  display:flex;
+
+  flex-direction:column;
+}
+
+.inputBox label{
+
+  margin-bottom:10px;
+
+  color:#aaa;
+}
+
+.inputBox input{
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#1a1a1a;
+
+  color:white;
+
+  font-size:18px;
+}
+
+/*
+================================
+SWITCH
+================================
+*/
+
+.switchContainer{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.switch{
+
+  position:relative;
+
+  width:60px;
+
+  height:34px;
+}
+
+.switch input{
+
+  opacity:0;
+}
+
+.slider{
+
+  position:absolute;
+
+  cursor:pointer;
+
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+
+  background:#333;
+
+  border-radius:34px;
+
+  transition:0.4s;
+}
+
+.slider:before{
+
+  position:absolute;
+
+  content:"";
+
+  height:26px;
+
+  width:26px;
+
+  left:4px;
+
+  bottom:4px;
+
+  background:white;
+
+  border-radius:50%;
+
+  transition:0.4s;
+}
+
+input:checked + .slider{
+
+  background:#00ff99;
+}
+
+input:checked + .slider:before{
+
+  transform:translateX(26px);
+}
+
+/*
+================================
+INFO
+================================
+*/
+
+.infoGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.infoCard{
+
+  background:#1a1a1a;
+
+  padding:20px;
+
+  border-radius:15px;
+}
+
+.infoCard h3{
+
+  color:#aaa;
+}
+
+.infoCard p{
+
+  margin-top:10px;
+
+  font-size:22px;
+
+  color:#00ff99;
+}
+/*
+================================
+SELECT
+================================
+*/
+
+select{
+
+  margin-top:20px;
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#1a1a1a;
+
+  color:white;
+
+  font-size:16px;
+}
+
+/*
+====================================
+MONITORING
+====================================
+*/
+
+.monitorGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.monitorBox{
+
+  background:#111;
+
+  border:1px solid #222;
+
+  border-radius:20px;
+
+  padding:25px;
+}
+
+.largeBox{
+
+  margin-top:20px;
+}
+
+.healthItem,
+.diagItem{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-top:20px;
+
+  padding-bottom:10px;
+
+  border-bottom:1px solid #222;
+}
+
+/*
+====================================
+ONLINE
+====================================
+*/
+
+.online{
+
+  color:#00ff99;
+
+  font-weight:bold;
+}
+
+/*
+====================================
+PULSE
+====================================
+*/
+
+.pulse{
+
+  color:#00ff99;
+
+  animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+  0%{
+    opacity:0.3;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0.3;
+  }
+
+}
+
+/*
+====================================
+EVENT LOG
+====================================
+*/
+
+.eventLog{
+
+  margin-top:20px;
+
+  background:#050505;
+
+  border-radius:15px;
+
+  padding:20px;
+
+  height:300px;
+
+  overflow:auto;
+
+  font-family:monospace;
+}
+
+.eventLog p{
+
+  margin:10px 0;
+
+  color:#00ff99;
+}
+
+/*
+====================================
+LOG HEADER
+====================================
+*/
+
+.logHeader{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+.liveIndicator{
+
+  color:red;
+
+  font-weight:bold;
+
+  animation:pulse 1s infinite;
+}
+
+/*
+====================================
+PERFORMANCE
+====================================
+*/
+
+.performanceGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(4,1fr);
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+.performanceCard{
+
+  background:#111;
+
+  border:1px solid #222;
+
+  border-radius:20px;
+
+  padding:20px;
+
+  text-align:center;
+}
+
+.performanceCard h3{
+
+  color:#aaa;
+}
+
+.performanceCard h1{
+
+  margin-top:15px;
+
+  color:#00ff99;
+
+  font-size:40px;
+}
+
+/*
+====================================
+RECOMMENDATION
+====================================
+*/
+
+.recommendationBox{
+
+  margin-top:20px;
+
+  background:#1a1a1a;
+
+  padding:20px;
+
+  border-radius:15px;
+
+  line-height:1.8;
+}
+/*
+====================================
+STATUS COLOR
+====================================
+*/
+
+.aman{
+
+  color:#00ff99;
+}
+
+.waspada{
+
+  color:yellow;
+}
+
+.bahaya{
+
+  color:red;
+}
+/*
+====================================
+DASHBOARD GRID
+====================================
+*/
+
+.dashboardGrid{
+
+  display:grid;
+
+  grid-template-columns:
+  1fr 2fr;
+
+  gap:20px;
+
+  margin-top:20px;
+}
+
+/*
+====================================
+LEFT GAUGE
+====================================
+*/
+
+.leftGauge .box{
+
+  height:100%;
+}
+
+/*
+====================================
+RIGHT CHART
+====================================
+*/
+
+.rightCharts{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:20px;
+}
+
+/*
+====================================
+CHART HEIGHT
+====================================
+*/
+
+#realtimeChart,
+#tempHumChart{
+
+  height:250px !important;
+}
+
+/*
+====================================
+GAUGE
+====================================
+*/
+
+#gaugeChart{
+
+  height:600px !important;
+}
+/*
+====================================
+SIDEBAR FOOTER
+====================================
+*/
+
+.sidebarFooter{
+
+  margin-top:auto;
+
+  text-align:center;
+
+  padding:20px 10px;
+
+  border-top:
+  1px solid #222;
+}
+
+/*
+====================================
+LOGO
+====================================
+*/
+
+.campusLogo{
+
+  display:block;
+
+  justify-content:center;
+
+  gap:5px;
+
+  margin-bottom:auto;
+}
+
+.campusLogo img{
+
+  width:110px;
+
+  height:auto;
+
+  object-fit:contain;
+
+  background:#111;
+
+  padding:6px;
+
+  border-radius:65px;
+
+  transition:0.5s;
+}
+
+.campusLogo img:hover{
+
+  transform:scale(1.08);
+
+  box-shadow:
+  0 0 15px #00ff99;
+}
+
+/*
+====================================
+TEXT
+====================================
+*/
+
+.sidebarFooter p{
+
+  color:white;
+
+  font-size:14px;
+
+  font-weight:bold;
+
+  margin-bottom:5px;
+}
+
+.sidebarFooter span{
+
+  color:#888;
+
+  font-size:12px;
+
+  line-height:1.5;
+}
+/*
+====================================
+DASHBOARD TITLE
+====================================
+*/
+
+.dashboardTitle{
+
+  width:100%;
+
+  text-align:center;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+}
+
+/*
+====================================
+TITLE
+====================================
+*/
+
+.dashboardTitle h1{
+
+  font-size:52px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
+  margin-bottom:10px;
+
+  text-transform:uppercase;
+
+  background:
+  linear-gradient(
+
+    90deg,
+
+    #00ff99,
+
+    #00ccff,
+
+    #66ffcc
+
+  );
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  -webkit-text-fill-color:
+  transparent;
+
+  color:transparent;
+
+  text-shadow:
+
+    0 0 20px
+    rgba(0,255,153,0.3);
+
+}
+
+/*
+====================================
+SUBTITLE
+====================================
+*/
+
+.dashboardTitle p{
+
+  font-size:18px;
+
+  color:#999;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+}

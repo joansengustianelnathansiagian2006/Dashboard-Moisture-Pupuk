@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard Monitoring</title>
+
+  <link rel="stylesheet"
+        href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+
+      <h2>Moisture Monitor</h2>
+
+      <p>Pupuk NPK</p>
+
+    </div>
+
+    <div class="menu">
+
+      <a href="index.html"
+         class="activeMenu">
+        <span id="menuDashboard"></span>
+         Dashboard
+         </span>
+
+      </a>
+
+      <a href="monitoring.html">
+
+         Monitoring
+
+      </a>
+
+      <a href="history.html">
+
+         History Data
+
+      </a>
+
+      <a href="setting.html">
+
+         Setting
+
+      </a>
+
+    </div>
+    <!-- LOGO CAMPUS -->
+
+    <div class="sidebarFooter">
+
+      <div class="campusLogo">
+
+        <img
+          src="assets/UGM.png"
+          alt="UGM"
+        >
+      </div>
+
+      <p>
+
+        Universitas Gadjah Mada
+
+      </p>
+
+      <span>
+
+        Departemen Teknik Nuklir
+        dan Teknik Fisika
+
+      </span>
+
+    </div>
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div class="dashboardTitle">
+
+        <h1>
+
+          DASHBOARD MONITORING
+
+        </h1>
+
+        <p>
+
+          Smart Moisture Monitoring System
+
+        </p>
+
+      </div>
+
+      <button id="systemToggle">
+
+        Sistem Aktif
+
+      </button>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="cardContainer">
+
+      <div class="card">
+
+        <h3>Suhu</h3>
+
+        <h1 id="tempText">
+          0°C
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Kelembapan</h3>
+
+        <h1 id="humText">
+          0%
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Kadar Air</h3>
+
+        <h1 id="waterText">
+          0%
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Status</h3>
+
+        <h1 id="statusText"
+            class="aman">
+
+          AMAN
+
+        </h1>
+
+      </div>
+
+    </div>
+
+    <!-- DASHBOARD GRID -->
+
+    <div class="dashboardGrid">
+
+      <!-- LEFT -->
+
+      <div class="leftGauge">
+
+        <div class="box">
+
+          <h2>
+
+            Kadar Air (Moisture Meter)
+
+          </h2>
+
+          <canvas id="gaugeChart"></canvas>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="rightCharts">
+
+        <!-- MOISTURE -->
+
+        <div class="box">
+
+          <h2>
+
+            Grafik Realtime Moisture
+
+          </h2>
+
+          <canvas id="realtimeChart"></canvas>
+
+        </div>
+
+        <!-- TEMP + HUM -->
+
+        <div class="box">
+
+          <h2>
+
+            Temperature & Humidity
+
+          </h2>
+
+          <canvas id="tempHumChart"></canvas>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <!-- JS -->
+
+  <script src="js/socket.js"></script>
+
+  <script src="js/gauge.js"></script>
+
+  <script src="js/realtime.js"></script>
+
+  <script src="js/system.js"></script>
+
+  <script src="js/tempHumidity.js"></script> 
+
+</body>
+</html>
