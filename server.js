@@ -20,9 +20,23 @@ const historyFile =
 
 path.join(
   __dirname,
-  "data",
   "history.json"
 );
+
+/*
+====================================
+CREATE FILE
+====================================
+*/
+
+if(!fs.existsSync(historyFile)){
+
+  fs.writeFileSync(
+    historyFile,
+    "[]"
+  );
+
+}
 
 /*
 ====================================
