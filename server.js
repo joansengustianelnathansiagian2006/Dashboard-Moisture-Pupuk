@@ -45,6 +45,7 @@ HTTP SERVER
 
 const server =
 http.createServer(app);
+
 /*
 ====================================
 SOCKET IO
@@ -148,6 +149,26 @@ io.on("connection",(socket)=>{
       active: systemActive
     }
   );
+
+   /*
+    ====================================
+    DISCONNECT
+    ====================================
+    */
+
+    socket.on(
+
+      "disconnect",
+
+      ()=>{
+
+        console.log(
+          "Client Disconnected"
+        );
+
+      }
+
+    );
 
   /*
   ====================================
