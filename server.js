@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const express = require("express");
 
 const http = require("http");
@@ -7,6 +9,20 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 const path = require("path");
+
+/*
+====================================
+HISTORY FILE PATH
+====================================
+*/
+
+const historyFile =
+
+path.join(
+  __dirname,
+  "data",
+  "history.json"
+);
 
 /*
 ====================================
@@ -67,6 +83,35 @@ DATA HISTORY
 */
 
 let historyData = [];
+
+/*
+====================================
+LOAD HISTORY FILE
+====================================
+*/
+
+try{
+
+  const savedData =
+
+  fs.readFileSync(
+    historyFile
+  );
+
+  historyData =
+
+  JSON.parse(savedData);
+
+}
+catch(error){
+
+  console.log(
+    "History file empty"
+  );
+
+  historyData = [];
+
+}
 
 /*
 ====================================
@@ -279,6 +324,28 @@ setInterval(()=>{
     */
 
     historyData.push(data);
+
+    /*
+====================================
+SAVE HISTORY FILE
+====================================
+*/
+
+    fs.writeFileSync(
+
+      historyFile,
+
+      JSON.stringify(
+
+        historyData,
+
+        null,
+
+        2
+
+      )
+
+    );
 
     /*
     ====================================
