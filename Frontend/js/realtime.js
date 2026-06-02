@@ -234,6 +234,7 @@ socket.on(
   "sensorData",
 
   (data)=>{
+    
 
     /*
     ================================
@@ -468,6 +469,135 @@ AFTER MANY DATA
       parseFloat(
         data.moisture
       )
+    );
+
+  }
+
+);
+
+/*
+====================================
+LOAD HISTORY SAAT PAGE DIBUKA
+====================================
+*/
+
+socket.on(
+
+  "historyData",
+
+  (history)=>{
+
+    /*
+    ====================================
+    JIKA TIDAK ADA DATA
+    ====================================
+    */
+
+    if(history.length === 0)
+    return;
+
+    /*
+    ====================================
+    RESET ARRAY
+    ====================================
+    */
+
+    labels.length = 0;
+
+    moistureData.length = 0;
+
+    /*
+    ====================================
+    LOOP HISTORY
+    ====================================
+    */
+
+    history.forEach((item)=>{
+
+      labels.push(
+        item.time
+      );
+
+      moistureData.push(
+
+        parseFloat(
+          item.moisture
+        )
+
+      );
+
+    });
+
+    /*
+    ====================================
+    AMBIL DATA TERBARU
+    ====================================
+    */
+
+    const latest =
+
+    history[
+      history.length - 1
+    ];
+
+    /*
+    ====================================
+    UPDATE TEXT
+    ====================================
+    */
+
+    document.getElementById(
+      "tempText"
+    ).innerHTML =
+
+      latest.temperature + "°C";
+
+    document.getElementById(
+      "humText"
+    ).innerHTML =
+
+      latest.humidity + "%";
+
+    document.getElementById(
+      "waterText"
+    ).innerHTML =
+
+      latest.moisture + "%";
+
+    /*
+    ====================================
+    UPDATE STATUS
+    ====================================
+    */
+
+    const statusText =
+    document.getElementById(
+      "statusText"
+    );
+
+    statusText.innerHTML =
+    latest.status;
+
+    /*
+    ====================================
+    UPDATE CHART
+    ====================================
+    */
+
+    realtimeChart.update();
+
+    /*
+    ====================================
+    UPDATE GAUGE
+    ====================================
+    */
+
+    smoothGaugeUpdate(
+
+      parseFloat(
+        latest.moisture
+      )
+
     );
 
   }
