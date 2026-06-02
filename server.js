@@ -6,8 +6,7 @@ const cors = require("cors");
 
 const { Server } = require("socket.io");
 
-const generateSensor =
-require("./sensorSimulator");
+const path = require("path");
 
 /*
 ====================================
@@ -17,11 +16,35 @@ APP
 
 const app = express();
 
+/*
+====================================
+FRONTEND STATIC
+====================================
+*/
+
+app.use(
+
+  express.static(
+
+    path.join(
+      __dirname,
+      "Frontend"
+    )
+
+  )
+
+);
+
 app.use(cors());
+
+/*
+====================================
+HTTP SERVER
+====================================
+*/
 
 const server =
 http.createServer(app);
-
 /*
 ====================================
 SOCKET IO
@@ -51,7 +74,47 @@ STATUS SISTEM
 */
 
 let systemActive = true;
+function generateSensor(){
 
+  const temperature =
+  (25 + Math.random()*10)
+  .toFixed(1);
+
+  const humidity =
+  (40 + Math.random()*30)
+  .toFixed(1);
+
+  const moisture =
+  (10 + Math.random()*80)
+  .toFixed(1);
+
+  let status = "AMAN";
+
+  if(moisture >= 70){
+
+    status = "BAHAYA";
+
+  }
+  else if(moisture >= 40){
+
+    status = "WASPADA";
+
+  }
+
+  return {
+
+    temperature,
+    humidity,
+    moisture,
+    status,
+
+    time:
+    new Date()
+    .toLocaleTimeString()
+
+  };
+
+}
 /*
 ====================================
 SOCKET CONNECTION
@@ -240,13 +303,6 @@ TEST API
 ====================================
 */
 
-app.get("/",(req,res)=>{
-
-  res.send(
-    "Backend Monitoring Running"
-  );
-
-});
 
 /*
 ====================================
