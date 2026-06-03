@@ -180,7 +180,20 @@ function generateSensor(){
 
     time:
     new Date()
-    .toLocaleTimeString(),
+    .toLocaleTimeString(
+
+      "id-ID",
+
+      {
+
+        timeZone:
+        "Asia/Jakarta",
+
+        hour12:false
+
+      }
+
+    )
 
   /*
   ====================================
