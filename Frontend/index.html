@@ -201,11 +201,57 @@
 
         <div class="box">
 
-          <h2>
+          <!-- HEADER -->
 
-            Grafik Realtime Moisture
+          <div class="chartHeader">
 
-          </h2>
+            <h2>
+
+              Grafik Realtime Moisture
+
+            </h2>
+
+            <!-- FILTER -->
+
+            <div class="timeFilter">
+
+              <button
+                data-range="1h"
+              >
+
+                1H
+
+              </button>
+
+              <button
+                data-range="1d"
+              >
+
+                1D
+
+              </button>
+
+              <button
+                data-range="1w"
+              >
+
+                1W
+
+              </button>
+
+              <button
+                data-range="1m"
+              >
+
+                1M
+
+              </button>
+
+            </div>
+
+          </div>
+
+          <!-- CHART -->
 
           <canvas id="realtimeChart"></canvas>
 

@@ -1245,3 +1245,74 @@ MOBILE
   }
 
 }
+
+/*
+====================================
+CHART HEADER
+====================================
+*/
+
+.chartHeader{
+
+  display:flex;
+
+  justify-content:
+  space-between;
+
+  align-items:center;
+
+  margin-bottom:20px;
+
+}
+
+/*
+====================================
+TIME FILTER
+====================================
+*/
+
+.timeFilter{
+
+  display:flex;
+
+  gap:10px;
+
+}
+
+/*
+====================================
+BUTTON
+====================================
+*/
+
+.timeFilter button{
+
+  background:#111;
+
+  color:white;
+
+  border:1px solid #00ffb3;
+
+  padding:8px 12px;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+/*
+====================================
+HOVER
+====================================
+*/
+
+.timeFilter button:hover{
+
+  background:#00ffb3;
+
+  color:black;
+
+}

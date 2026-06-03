@@ -170,7 +170,16 @@ function generateSensor(){
 
     time:
     new Date()
-    .toLocaleTimeString()
+    .toLocaleTimeString(),
+
+  /*
+  ====================================
+  TIMESTAMP
+  ====================================
+  */
+
+    timestamp:
+    Date.now()
 
   };
 
@@ -302,7 +311,26 @@ io.on("connection",(socket)=>{
     }
 
   );
+  /*
+====================================
+REQUEST HISTORY
+====================================
+*/
 
+  socket.on(
+
+    "requestHistory",
+
+    ()=>{
+
+      socket.emit(
+        "historyData",
+        historyData
+      );
+
+    }
+
+  );
 });
 
 /*

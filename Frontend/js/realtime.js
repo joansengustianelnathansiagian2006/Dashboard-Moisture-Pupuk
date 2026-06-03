@@ -60,6 +60,13 @@ loadState(
 
 /*
 ====================================
+CURRENT FILTER
+====================================
+*/
+
+let currentRange = "1h";
+/*
+====================================
 ANTI DUPLICATE
 ====================================
 */
@@ -223,6 +230,66 @@ const realtimeChart =
 
 window.realtimeChartInstance;
 
+/*
+====================================
+FILTER HISTORY
+====================================
+*/
+
+function filterHistory(
+  history
+){
+
+  const now =
+  Date.now();
+
+  let limit = 0;
+
+  /*
+  ====================================
+  RANGE
+  ====================================
+  */
+
+  if(currentRange === "1h"){
+
+    limit =
+    60 * 60 * 1000;
+
+  }
+
+  else if(currentRange === "1d"){
+
+    limit =
+    24 * 60 * 60 * 1000;
+
+  }
+
+  else if(currentRange === "1w"){
+
+    limit =
+    7 * 24 * 60 * 60 * 1000;
+
+  }
+
+  else if(currentRange === "1m"){
+
+    limit =
+    30 * 24 * 60 * 60 * 1000;
+
+  }
+
+  return history.filter(
+
+    item =>
+
+    now - item.timestamp
+
+    <= limit
+
+  );
+
+}
 /*
 ====================================
 SOCKET
@@ -486,6 +553,9 @@ socket.on(
   "historyData",
 
   (history)=>{
+    history = filterHistory(
+      history
+    );
 
     /*
     ====================================
@@ -670,3 +740,71 @@ function smoothGaugeUpdate(
   },20);
 
 }
+
+/*
+====================================
+TIME FILTER BUTTON
+====================================
+*/
+
+document
+.querySelectorAll(
+  ".timeFilter button"
+)
+
+.forEach((button)=>{
+
+  button.addEventListener(
+
+    "click",
+
+    ()=>{
+
+      /*
+      ====================================
+      ACTIVE BUTTON
+      ====================================
+      */
+
+      document
+      .querySelectorAll(
+        ".timeFilter button"
+      )
+
+      .forEach((btn)=>{
+
+        btn.classList.remove(
+          "active"
+        );
+
+      });
+
+      button.classList.add(
+        "active"
+      );
+
+      /*
+      ====================================
+      SAVE RANGE
+      ====================================
+      */
+
+      currentRange =
+
+      button.dataset.range;
+
+      /*
+      ====================================
+      REQUEST HISTORY AGAIN
+      ====================================
+      */
+
+      socket.emit(
+        "requestHistory"
+      );
+
+    }
+
+  );
+
+});
