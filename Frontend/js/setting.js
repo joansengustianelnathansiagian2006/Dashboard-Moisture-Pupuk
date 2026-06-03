@@ -345,3 +345,107 @@ socket.on(
   }
 
 );
+
+/*
+====================================
+THRESHOLD INPUT
+====================================
+*/
+
+const normalInput =
+
+document.getElementById(
+  "normalThreshold"
+);
+
+const dangerInput =
+
+document.getElementById(
+  "dangerThreshold"
+);
+
+/*
+====================================
+LOAD STORAGE
+====================================
+*/
+
+normalInput.value =
+
+localStorage.getItem(
+  "thresholdNormal"
+)
+
+|| 40;
+
+dangerInput.value =
+
+localStorage.getItem(
+  "thresholdDanger"
+)
+
+|| 70;
+
+/*
+====================================
+SAVE THRESHOLD
+====================================
+*/
+
+function saveThreshold(){
+
+  localStorage.setItem(
+
+    "thresholdNormal",
+
+    normalInput.value
+
+  );
+
+  localStorage.setItem(
+
+    "thresholdDanger",
+
+    dangerInput.value
+
+  );
+
+  socket.emit(
+
+    "updateThreshold",
+
+    {
+
+      normal:
+      normalInput.value,
+
+      danger:
+      dangerInput.value
+
+    }
+
+  );
+
+}
+
+/*
+====================================
+AUTO SAVE
+====================================
+*/
+
+normalInput.addEventListener(
+
+  "change",
+
+  saveThreshold
+
+);
+
+dangerInput.addEventListener(
+
+  "change",
+
+  saveThreshold
+
+);

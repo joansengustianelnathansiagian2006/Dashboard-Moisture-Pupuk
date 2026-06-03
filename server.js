@@ -134,6 +134,16 @@ STATUS SISTEM
 */
 
 let systemActive = true;
+
+/*
+====================================
+THRESHOLD
+====================================
+*/
+
+let thresholdNormal = 40;
+
+let thresholdDanger = 70;
 function generateSensor(){
 
   const temperature =
@@ -150,12 +160,12 @@ function generateSensor(){
 
   let status = "AMAN";
 
-  if(moisture >= 70){
+  if(moisture >= thresholdDanger){
 
     status = "BAHAYA";
 
   }
-  else if(moisture >= 40){
+  else if(moisture >= thresholdNormal){
 
     status = "WASPADA";
 
@@ -326,6 +336,37 @@ REQUEST HISTORY
       socket.emit(
         "historyData",
         historyData
+      );
+
+    }
+
+  );
+  /*
+====================================
+UPDATE THRESHOLD
+====================================
+*/
+
+  socket.on(
+
+    "updateThreshold",
+
+    (data)=>{
+
+      thresholdNormal =
+
+      parseInt(
+        data.normal
+      );
+
+      thresholdDanger =
+
+      parseInt(
+        data.danger
+      );
+
+      console.log(
+        "Threshold Updated"
       );
 
     }

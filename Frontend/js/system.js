@@ -3,38 +3,86 @@ document.getElementById(
   "systemToggle"
 );
 
-let active = true;
 
-systemToggle.addEventListener(
+/*
+====================================
+SYSTEM BUTTON
+====================================
+*/
+
+const systemButton =
+
+document.getElementById(
+  "systemToggle"
+);
+
+/*
+====================================
+SYSTEM STATUS
+====================================
+*/
+
+socket.on(
+
+  "systemStatus",
+
+  (data)=>{
+
+    /*
+    ====================================
+    SYSTEM ACTIVE
+    ====================================
+    */
+
+    if(data.active){
+
+      systemButton.innerHTML =
+
+      "Sistem Aktif";
+
+      systemButton.style.background =
+
+      "#00ff99";
+
+    }
+
+    /*
+    ====================================
+    SYSTEM OFF
+    ====================================
+    */
+
+    else{
+
+      systemButton.innerHTML =
+
+      "System Mati";
+
+      systemButton.style.background =
+
+      "red";
+
+    }
+
+  }
+
+);
+
+/*
+====================================
+TOGGLE BUTTON
+====================================
+*/
+
+systemButton.addEventListener(
+
   "click",
 
   ()=>{
 
-    active = !active;
-
     socket.emit(
       "toggleSystem"
     );
-
-    if(active){
-
-      systemToggle.innerHTML =
-      "Sistem Aktif";
-
-      systemToggle.style.background =
-      "#00ff99";
-
-    }else{
-
-      systemToggle.innerHTML =
-      "Sistem Nonaktif";
-
-      systemToggle.style.background =
-      "red";
-
-      systemToggle.style.color =
-      "white";
-    }
 
   }
 
